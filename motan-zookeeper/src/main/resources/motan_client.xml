@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:motan="http://api.weibo.com/schema/motan"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://api.weibo.com/schema/motan
+            http://api.weibo.com/schema/motan.xsd">
+
+    <!-- 指向远程服务 -->
+    <motan:referer id="remoteService" interface="cc.logirl.motan.zookeeper.FooService" registry="my_zookeeper"/>
+
+
+    <!-- zookeeper为单节点 -->
+    <motan:registry regProtocol="zookeeper" name="my_zookeeper" address="113.209.79.133:2181"/>
+    <!-- zookeeper为多节点集群 -->
+    <!--<motan:registry regProtocol="zookeeper" name="my_zookeeper" address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>-->
+</beans>
